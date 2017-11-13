@@ -24,6 +24,7 @@ if (cluster.isMaster) {
   const AWS     = require('aws-sdk');
   const express = require('express')
   const path    = require('path')
+  const http    = require('http');
 
   const app     = express()
 
@@ -38,7 +39,7 @@ if (cluster.isMaster) {
   app.get('/public/*', function (req, res) {
     const filePath = __dirname + "/public" + req.path
     res.sendFile(path.join(filePath))
-  });
+  })
 
   //
   // Catch-all
@@ -46,7 +47,7 @@ if (cluster.isMaster) {
 
   app.get('*', function (req, res) {
     if (false) return res.status(404).send('Not found')
-    else return res.status(200)
+    else return res.status(200).send()
   })
 
   //

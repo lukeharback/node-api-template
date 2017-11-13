@@ -1,6 +1,7 @@
 'use strict'
 
 const cmd = require('node-cmd')
+const fs  = require('fs')
 
 const runcmd = function(cmdstring) {
   return new Promise((resolve, reject) => {
@@ -30,7 +31,7 @@ runcmd('mkdir -p build')
   const fileName = 'build/build_'+ data +'.zip'
   return runcmd('zip '+ fileName +' -r * .[^.]*  -x node_modules/\\* \\*.git\\* build/\\* \\*.DS_Store\\* \\*.md .buildNumber.txt -Z store')
 })
-.then(data => console.log("\n+ Successful build" + process.argv[2]))
+.then(data => console.log("\n+ Successful" + process.argv[2]))
 .catch(error => {
   console.log("+ FAILED: Build failed, reason: ", error)
 })
