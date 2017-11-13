@@ -1,0 +1,19 @@
+{
+  "name": "node-api-template",
+  "version": "1.0.0",
+  "description": "Created to quickly start a new API with my standard defaults",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "node build.js build"
+  },
+  "author": "Luke Harback",
+  "dependencies": {
+    "aws-sdk": "^2.120.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "node-cmd": "^3.0.0"
+  }
+}
