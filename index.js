@@ -1,10 +1,16 @@
 'use strict'
 
+//
+// Imports
+//
 
 const cluster = require('cluster')
 
+//
+// AWS Cluster setup
+//
+
 if (cluster.isMaster) {
-  // Count the machine's CPUs
   var cpuCount = require('os').cpus().length;
 
   // Create a worker for each CPU
@@ -20,6 +26,10 @@ if (cluster.isMaster) {
   });
 
 } else {
+
+  //
+  // Imports
+  //
 
   const AWS     = require('aws-sdk');
   const express = require('express')
