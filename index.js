@@ -11,19 +11,19 @@ const cluster = require('cluster')
 //
 
 if (cluster.isMaster) {
-  var cpuCount = require('os').cpus().length;
+  var cpuCount = require('os').cpus().length
 
   // Create a worker for each CPU
   for (var i = 0; i < cpuCount; i += 1) {
-      cluster.fork();
+      cluster.fork()
   }
 
   // Listen for terminating workers
   cluster.on('exit', function (worker) {
       // Replace the terminated workers
-      console.log('Worker ' + worker.id + ' died :(');
-      cluster.fork();
-  });
+      console.log('Worker ' + worker.id + ' died :(')
+      cluster.fork()
+  })
 
 } else {
 
@@ -31,10 +31,10 @@ if (cluster.isMaster) {
   // Imports
   //
 
-  const AWS     = require('aws-sdk');
+  const AWS     = require('aws-sdk')
   const express = require('express')
   const path    = require('path')
-  const http    = require('http');
+  const http    = require('http')
 
   const app     = express()
 
